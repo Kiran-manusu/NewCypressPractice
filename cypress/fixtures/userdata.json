@@ -1,0 +1,32 @@
+{
+"data":[
+
+  {
+    "email": "a@b.com",
+    "pass": "12345",
+    "dob": "1998-05-26"
+  },
+   
+  {
+    "name": "gopi",
+    "gender": "Male",
+    "email": "a@b.com",
+    "pass": "12345",
+    "dob": "1996-05-24"
+  },
+
+  {
+    "name": "deeksha",
+    "gender": "Female",
+    "email": "a@b.com",
+    "pass": "12345",
+    "dob": "1996-05-26"
+  }
+
+
+]
+
+}
+
+
+
