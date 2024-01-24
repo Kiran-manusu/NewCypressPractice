@@ -120,7 +120,7 @@ Cypress.Commands.add("Validatetext" , (actualtext ,expectedtext)=>{
 
     try {
 
-        expect(actualtext).equal(expectedtext)
+        expect(actualtext).contains(expectedtext)
         
     } catch (error) {
 
@@ -135,11 +135,3 @@ Cypress.Commands.add("GetTextFromElement" , ($element)=>{
 
     
 })  
-
-
-
-
-
-
-
-

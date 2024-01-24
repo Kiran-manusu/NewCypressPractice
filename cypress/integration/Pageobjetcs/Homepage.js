@@ -37,6 +37,10 @@ class Homepage{
         return cy.get('.alert')
     }
 
+    getTotalproductlist(){
+        return cy.get('.table.table-hover tr td:nth-child(4) strong')
+    }
+
 
 
 
