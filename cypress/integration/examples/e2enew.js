@@ -1,4 +1,4 @@
-/// <reference types="Cypress" />
+// <reference types="Cypress" />
 
 import Homepage from "../Pageobjetcs/Homepage"
 

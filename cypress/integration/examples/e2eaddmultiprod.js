@@ -1,4 +1,4 @@
-/// <reference types="Cypress" />
+// <reference types="Cypress" />
 
 import Homepage from "../Pageobjetcs/Homepage"
 
@@ -19,25 +19,33 @@ describe("Adding Multiple Products demo", () => {
 
             cy.log(datalist.length)
 
-            for (let index = 0; index < datalist.length; index++) {
-                const productname = datalist[index];
-                cy.AddMultipleProduct(productname)
+            //Adding quantity equal time
+            // for (let index = 0; index < datalist.length; index++) {
+            //     const productname = datalist[index];
+            //     cy.AddMultipleProduct(productname , 2)
+            // }
+
+             //Adding quantity different times
+            cy.AddMultipleProduct(datalist[0] , 1)
+            cy.AddMultipleProduct(datalist[1] , 3)
+
+            home.getcartbutton().click()
 
 
-            }
+            home.getQuantity().each(($ele , index , $list)=>{
 
-            // home.getcartbutton().click()
-            // home.getTotalproductlist().each(($ele , index , $list)=>{
-
-            //     let prdtext = $ele.text()
-            //     // var price = prdtext.replace('. ', '')
-            //     prdtext = prdtext.substring(3).trim();
-            //     // cy.log(typeof(prdtext))
-            //     let prdint = parseFloat(prdtext)
-            //     totalprdprices += prdint;
+                let quantity = $ele.text()
+                // var price = prdtext.replace('. ', '')
+                // prdtext = prdtext.substring(3).trim();
+                cy.log(quantity)
+                // cy.log(typeof(quantity))
+                let prdint = parseFloat(quantity)
+                // cy.log(typeof(prdint))
+                // totalprdprices += prdint;
                               
-            // }).then(()=>{
-            //     cy.log("***** Total price is "+totalprdprices)
+            })
+            // .then(()=>{
+            //     // cy.log("***** Total price is "+totalprdprices)
 
             //     cy.get('.table.table-hover tbody tr td.text-right strong').each(($price, index, $list)=>{
             //         let totalprice = $price.text()

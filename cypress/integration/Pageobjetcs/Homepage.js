@@ -41,6 +41,10 @@ class Homepage{
         return cy.get('.table.table-hover tr td:nth-child(4) strong')
     }
 
+    getQuantity(){
+        return cy.get('.table.table-hover tr td:nth-child(2) input')
+    }
+
 
 
 
