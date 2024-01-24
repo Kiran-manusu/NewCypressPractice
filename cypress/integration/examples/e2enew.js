@@ -38,6 +38,14 @@ describe("Fixture and custom commands demo", () => {
                               
             }).then(()=>{
                 cy.log("***** Total price is "+totalprdprices)
+
+                cy.get('.table.table-hover tbody tr td.text-right strong').each(($price, index, $list)=>{
+                    let totalprice = $price.text()
+                    cy.log(totalprice)
+                    totalprice = totalprice.substring(3).trim();
+                    let totalpriceint = parseFloat(totalprice)
+                    cy.AssertTextValue(totalprdprices,totalpriceint)
+                })
             })
 
             

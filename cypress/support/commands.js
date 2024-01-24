@@ -135,3 +135,37 @@ Cypress.Commands.add("GetTextFromElement" , ($element)=>{
 
     
 })  
+
+Cypress.Commands.add("AddMultipleProduct" , (prdname)=>{
+
+    const name = new Homepage()
+
+    name.getprdnamelist().each(($ele , index , $list)=>{
+
+        var prdtext = $ele.text()
+        cy.log(prdtext)
+        if(prdtext.includes(prdname)){
+            
+
+            name.getaddbuttonlist().eq(index).scrollIntoView().then($buttonadd=>{
+
+                for (let index = 0; index < 2 ; index++) {
+                    $buttonadd.css('border' , '2px solid red')
+            
+                    cy.wrap($buttonadd).click().then(()=>{
+                      
+                        $buttonadd.css('border' , '2px solid Green')
+                    })
+                    
+                }
+                
+               
+               
+              
+
+            })
+        }
+
+    })
+}) 
+
