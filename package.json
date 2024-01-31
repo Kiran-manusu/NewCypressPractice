@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "cypress": "^13.6.4"
+  },
+
+  "scripts": {
+
+   "teste2echromerecord" : "npx cypress run --spec cypress/integration/examples/e2enew.js --headed --browser chrome --record --key 078962cf-dcdd-4d4e-94e3-13a601816fcb",
+    "teste2efirefox": "npx cypress run --spec cypress/integration/examples/e2enew.js --headed --browser firefox"
+
+    
+
+  }
+}

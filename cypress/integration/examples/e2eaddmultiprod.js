@@ -5,7 +5,7 @@ import Homepage from "../Pageobjetcs/Homepage"
 describe("Adding Multiple Products demo", () => {
     var datalist = []
     var alerttext;
-    var totalprdprices =0;
+    var totalprdprices = 0;
 
     it("Test case 1", () => {
 
@@ -14,10 +14,18 @@ describe("Adding Multiple Products demo", () => {
         cy.visit('https://rahulshettyacademy.com/angularpractice/shop')
 
         cy.fixture('multipleproducts').then(data => {
-           
+
             datalist = data.Products
 
             cy.log(datalist.length)
+
+
+            for (let index = 0; index < datalist.length; index++) {
+                const productname = datalist[index];
+                cy.AddProduct(productname)
+
+
+            }
 
             //Adding quantity equal time
             // for (let index = 0; index < datalist.length; index++) {
@@ -25,14 +33,20 @@ describe("Adding Multiple Products demo", () => {
             //     cy.AddMultipleProduct(productname , 2)
             // }
 
-             //Adding quantity different times
-            cy.AddMultipleProduct(datalist[0] , 1)
-            cy.AddMultipleProduct(datalist[1] , 3)
+            //Adding quantity different times
+            // cy.AddMultipleProduct(datalist[0] , 1)
+            // cy.AddMultipleProduct(datalist[1] , 3)
 
             home.getcartbutton().click()
 
+            cy.get('.media-body h4 a').each(($prolist, index, $list) => {
+                let itemvalue = $prolist.text()
+                cy.log("Item Value in the List is " + itemvalue)
+                cy.AssertTextValue(datalist[index], itemvalue)
+            })
 
-            home.getQuantity().each(($ele , index , $list)=>{
+
+            home.getQuantity().each(($ele, index, $list) => {
 
                 let quantity = $ele.text()
                 // var price = prdtext.replace('. ', '')
@@ -42,8 +56,10 @@ describe("Adding Multiple Products demo", () => {
                 let prdint = parseFloat(quantity)
                 // cy.log(typeof(prdint))
                 // totalprdprices += prdint;
-                              
+
             })
+
+
             // .then(()=>{
             //     // cy.log("***** Total price is "+totalprdprices)
 
@@ -56,7 +72,7 @@ describe("Adding Multiple Products demo", () => {
             //     })
             // })
 
-            
+
             // home.getchekoutbutton().click()
             // home.getcountrytextfield().type('India')
             // home.getsuggestions().click()
@@ -67,8 +83,8 @@ describe("Adding Multiple Products demo", () => {
             //     })
 
             // })
-            
-       
+
+
 
 
 

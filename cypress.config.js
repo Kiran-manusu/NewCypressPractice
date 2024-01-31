@@ -1,4 +1,9 @@
 module.exports = {
+
+  env:{
+    url: 'https://rahulshettyacademy.com/AutomationPractice/#/',    
+
+  },
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
@@ -9,6 +14,7 @@ module.exports = {
     screenshotsFolder: 'cypress/screenshots',
     video: true,
     videosFolder: 'cypress/videos',
-    chromeWebSecurity: false
+    chromeWebSecurity: false,
+    projectId: "rivr5z"
   },
 };
